@@ -68,26 +68,9 @@ export function WorldChart() {
       const res: WorldWide = await (await fetch(url)).json();
       const {
         active,
-        activePerOneMillion,
-        affectedCountries,
-        cases,
-        casesPerOneMillion,
         critical,
-        criticalPerOneMillion,
         deaths,
-        deathsPerOneMillion,
-        oneCasePerPeople,
-        oneDeathPerPeople,
-        oneTestPerPeople,
-        population,
         recovered,
-        recoveredPerOneMillion,
-        tests,
-        testsPerOneMillion,
-        todayCases,
-        todayDeaths,
-        todayRecovered,
-        updated,
       } = res;
       const newData = [deaths, recovered, active, critical];
       // const casePerOneMillion = [deathsPerOneMillion, activePerOneMillion, recoveredPerOneMillion, criticalPerOneMillion];
