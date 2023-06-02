@@ -1,5 +1,7 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import { useEffect, useState } from 'react';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const navElements = [
@@ -13,8 +15,19 @@ function App() {
     },
   ]
 
+  const { pathname } = useLocation();
+  const [path, setPath] = useState('/');
+
+  useEffect(() => {
+     setPath(pathname);
+  }, [pathname]);
+
   return (
     <>
+
+      <Routes location={path}>
+        <Route path={path} />
+      </Routes>
       <div>
         <div className="">
           <div className="flex">
@@ -29,7 +42,7 @@ function App() {
               </ul>
             </aside>
             <main className='md:ml-24 mt-20 w-full overflow-hidden'>
-              <Outlet />
+              {path === '/' ? <Dashboard /> : <Outlet />}
             </main>
           </div>
         </div>
