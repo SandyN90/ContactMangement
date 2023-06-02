@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ContactForm from "./ContactForm";
 import { AiOutlinePlus } from 'react-icons/ai';
-import {BiUser} from 'react-icons/bi';
+import { BiUser } from 'react-icons/bi';
 import { Contact, ContactFormProps } from '../types';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addContacts, updateList } from '../store/contactStore';
